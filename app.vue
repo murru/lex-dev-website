@@ -21,8 +21,8 @@
 
     <!-- Header -->
     <header class="w3-container w3-center header" id="home">
-      <h1 class="w3-jumbo"><b>Murru Dev</b></h1>
-      <p>Informatic Engineer</p>
+      <h1 class="w3-jumbo"><b>On Dev Go</b></h1>
+      <p>Software Crafting Studio</p>
 
       <!-- Alex's images -->
       <img src="~/assets/img/profile_girl.jpg" class="w3-image w3-hide-large w3-hide-small w3-round" style="display:block;width:60%;margin:auto;">
