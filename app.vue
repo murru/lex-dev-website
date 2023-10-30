@@ -21,26 +21,50 @@
 
     <!-- Header -->
     <header class="w3-container w3-center header" id="home">
-      <h1 class="w3-jumbo"><b>On Dev Go</b></h1>
+      <h1 class="w3-jumbo"><b>MurruDev</b></h1>
       <p>Software Crafting Studio</p>
 
       <!-- Alex's images -->
       <img src="~/assets/img/profile_girl.jpg" class="w3-image w3-hide-large w3-hide-small w3-round" style="display:block;width:60%;margin:auto;">
       <img src="~/assets/img/profile_girl.jpg" class="w3-image w3-hide-large w3-hide-medium w3-round" width="1000" height="1333">
 
-      <!-- Go to linked in profile -->
-      <a
-        href="https://www.linkedin.com/in/murrugarra/"
-        target="_blank"
-        class="w3-button w3-light-grey w3-padding-large w3-margin-top"
-      >
-        <i class="fa-brands fa-linkedin"></i> Linked in
-      </a>
+      <!-- Profiles Section -->
+      <div class="w3-content w3-justify w3-text-grey w3-padding-32 profiles-wrapper">
+        <!-- Go to linked in profile -->
+        <a
+          href="https://www.linkedin.com/in/murrugarra/"
+          target="_blank"
+          class="w3-button w3-padding-large w3-margin-top w3-text-white"
+          style="background-color: #0A65C2;"
+        >
+          <i class="fa-brands fa-linkedin-in"></i> Linked in
+        </a>
+
+        <!-- Go to git hub profile -->
+        <a
+          href="https://github.com/murru-dev"
+          target="_blank"
+          class="w3-button w3-padding-large w3-margin-top w3-text-white"
+          style="background-color: black;"
+        >
+          <i class="fa-brands fa-github"></i> Git Hub
+        </a>
+
+        <!-- Go to fiverr profile -->
+        <a
+          href="https://www.fiverr.com/murrugarra"
+          target="_blank"
+          class="w3-button w3-padding-large w3-margin-top w3-text-white"
+          style="background-color: #1DBF73;"
+        >
+          <i class="fa-brands fa-dev"></i> Fiverr
+        </a>
+      </div>
     </header>
 
     <!-- About Section -->
     <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
-      <h2>About Me</h2>
+      <h2>About MurruDev</h2>
       <hr class="w3-opacity">
       <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing
@@ -141,6 +165,17 @@ body, h1,h2,h3,h4,h5,h6 {
 .header {
   padding: 128px 16px;
 }
+
+.profiles-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.profiles-wrapper > * { flex: 1; }
+
+/* .profile-item {
+
+} */
 
 .footer {
   margin:-24px;
