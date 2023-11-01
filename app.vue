@@ -2,7 +2,7 @@
   <div class="wrapper">
     <p class="icon"><i class="fa-solid fa-code"></i></p>
     <p class="title"><strong>Murru Dev Website</strong></p>
-    <p class="subtitle">We will be on production soon!</p>
+    <p class="subtitle">We will be on production soon! TEST</p>
   </div>
 </template>
 <style>
