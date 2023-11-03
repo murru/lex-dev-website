@@ -2,7 +2,7 @@ name: Publish to CapRover
 on:
   push:
     branches:
-      [ "prod" ]
+      [ prod ]
   
   workflow_dispatch: 
 
@@ -32,11 +32,10 @@ jobs:
           command: c
           cwd: "./"
           files: |
-            captain-definition
-            node_modules/
-            package.json
-            Dockerfile
-            .output/
+            ./captain-definition
+            ./node_modules
+            ./Dockerfile
+            ./output
           outPath: deploy.tar
 
       - uses: caprover/deploy-from-github@v1.0.1
@@ -44,3 +43,4 @@ jobs:
           server: '${{ secrets.CAPROVER_SERVER }}'
           app: '${{ secrets.APP_NAME }}'
           token: '${{ secrets.APP_TOKEN }}'
+          branch: 'prod'
