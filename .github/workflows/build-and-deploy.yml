@@ -1,7 +1,10 @@
 name: Publish to CapRover
 on:
   push:
-    branches: [ "prod" ]
+    branches:
+      [ "prod" ]
+  
+  workflow_dispatch: 
 
 jobs:
   build-and-deploy:
