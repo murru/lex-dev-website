@@ -21,7 +21,7 @@
 
     <!-- Header -->
     <header class="w3-container w3-center header" id="home">
-      <h1 class="w3-jumbo"><b>MurruDev</b></h1>
+      <h1 class="responsive-title"><b>MurruDev</b></h1>
       <p>Software Crafting Studio</p>
 
       <!-- Alex's images -->
@@ -34,30 +34,33 @@
         <a
           href="https://www.linkedin.com/in/murrugarra/"
           target="_blank"
-          class="w3-button w3-padding-large w3-margin-top w3-text-white"
+          class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
           style="background-color: #0A65C2;"
         >
-          <i class="fa-brands fa-linkedin-in"></i> Linked in
+          <i class="fa-brands fa-linkedin-in"></i>
+          <span class="responsive-btn-text">Linked in</span>
         </a>
 
         <!-- Go to git hub profile -->
         <a
           href="https://github.com/murru-dev"
           target="_blank"
-          class="w3-button w3-padding-large w3-margin-top w3-text-white"
+          class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
           style="background-color: black;"
         >
-          <i class="fa-brands fa-github"></i> Git Hub
+          <i class="fa-brands fa-github"></i>
+          <span class="responsive-btn-text">Git Hub</span>
         </a>
 
         <!-- Go to fiverr profile -->
         <a
           href="https://www.fiverr.com/murrugarra"
           target="_blank"
-          class="w3-button w3-padding-large w3-margin-top w3-text-white"
+          class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
           style="background-color: #1DBF73;"
         >
-          <i class="fa-brands fa-dev"></i> Fiverr
+          <i class="fa-brands fa-dev"></i>
+          <span class="responsive-btn-text">Fiverr</span>
         </a>
       </div>
     </header>
@@ -98,7 +101,7 @@
     </div>
 
     <!-- Testimonals Section -->
-    <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="testimonials">
+    <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="reputation">
       <h2>My Reputation</h2>
       <hr class="w3-opacity">
       <img src="~/assets/img/avatar_smoke.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
@@ -163,7 +166,23 @@ body, h1,h2,h3,h4,h5,h6 {
 }
 
 .header {
-  padding: 128px 16px;
+  /* padding: 128px 16px; */
+  padding: 30px 16px;
+}
+
+.responsive-title {
+  font-size: 55px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.responsive-btn-text {
+  display: none;
 }
 
 .profiles-wrapper {
@@ -173,11 +192,17 @@ body, h1,h2,h3,h4,h5,h6 {
 
 .profiles-wrapper > * { flex: 1; }
 
-/* .profile-item {
-
-} */
-
 .footer {
   margin:-24px;
+}
+
+@media (min-width: 768px) {
+  .responsive-title {
+    font-size: 64px;
+  }
+
+  .responsive-btn-text {
+    display: block;
+  }
 }
 </style>

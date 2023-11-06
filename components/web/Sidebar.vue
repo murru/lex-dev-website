@@ -12,10 +12,12 @@
         <i class="fa-solid fa-xmark"></i>
       </a>
       <div class="w3-bar-block w3-center">
-        <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Home</a>
-        <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Portfolio</a>
+        <a href="#home" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Home</a>
         <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black">About</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Contact</a>
+        <a href="#stats" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Stats</a>
+        <a href="#reputation" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Reputation</a>
+        <a href="#demos" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Demos</a>
+        <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Portfolio</a>
       </div>
     </nav>
   </Transition>
