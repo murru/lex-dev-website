@@ -3,10 +3,6 @@
   <div class="w3-sidebar w3-hide-medium w3-hide-small carousel-wrapper">
     <ImgCarousel />
   </div>
-  <!-- HERE -->
-  <!-- <div class="w3-hide-medium w3-hide-small">
-    <ImgCarousel />
-  </div> -->
 
   <!-- Hidden Sidebar (reveals when clicked on menu icon)-->
   <Sidebar />
@@ -37,48 +33,25 @@
         class="w3-content w3-justify w3-text-grey w3-padding-32 profiles-wrapper"
       >
         <!-- Go to linked in profile -->
-        <a
-          href="https://www.linkedin.com/in/murrugarra/"
-          target="_blank"
-          class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
-          style="background-color: #0a65c2"
-        >
-          <i class="fa-brands fa-linkedin-in"></i>
-          <span class="responsive-btn-text">Linked in</span>
-        </a>
-
-        <!-- Go to git hub profile -->
-        <a
-          href="https://github.com/murru-dev"
-          target="_blank"
-          class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
-          style="background-color: black"
-        >
-          <i class="fa-brands fa-github"></i>
-          <span class="responsive-btn-text">Git Hub</span>
-        </a>
-
-        <!-- Go to fiverr profile -->
-        <a
-          href="https://www.fiverr.com/murrugarra"
-          target="_blank"
-          class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
-          style="background-color: #1dbf73"
-        >
-          <i class="fa-brands fa-dev"></i>
-          <span class="responsive-btn-text">Fiverr</span>
-        </a>
+        <ProfileButton
+          v-for="pb in profileButtons"
+          :key="pb.name.toLowerCase().replace(' ', '')"
+          :url="pb.url"
+          :color="pb.color"
+          :icon="pb.icon"
+          :name="pb.name"
+        />
       </div>
 
       <!-- Alex's images -->
-      <!-- HERE TABLET -->
+      <!-- TABLET -->
       <div
         class="w3-hide-large w3-hide-small"
         style="width: 90%; height: 900px; margin: 0 auto"
       >
         <ImgCarousel />
       </div>
-      <!-- HERE MOBILE -->
+      <!-- MOBILE -->
       <div
         class="w3-hide-large w3-hide-medium"
         style="width: 100%; height: 500px"
@@ -94,48 +67,11 @@
     >
       <h2>My Reputation</h2>
       <hr class="w3-opacity" />
-      <img
-        src="~/assets/img/avatar_smoke.jpg"
-        alt="Avatar"
-        class="w3-left w3-circle w3-margin-right"
-        style="width: 80px"
-      />
-      <p>
-        <span class="w3-large w3-text-black w3-margin-right"
-          >Chandler Bing.</span
-        >
-        Web Designer.
-      </p>
-      <p>Jane Doe is just awesome. I am so happy to have met her!</p>
-      <br />
-
-      <img
-        src="~/assets/img/bandmember.jpg"
-        alt="Avatar"
-        class="w3-left w3-circle w3-margin-right"
-        style="width: 80px"
-      />
-      <p>
-        <span class="w3-large w3-text-black w3-margin-right">Chris Fox.</span>
-        CEO at Mighty Schools.
-      </p>
-      <p>Jane Doe saved us from a web disaster.</p>
-      <br />
-
-      <img
-        src="~/assets/img/avatar_g2.jpg"
-        alt="Avatar"
-        class="w3-left w3-circle w3-margin-right"
-        style="width: 80px"
-      />
-      <p>
-        <span class="w3-large w3-text-black w3-margin-right"
-          >Rebecca Flex.</span
-        >
-        CEO at Company.
-      </p>
-      <p>No one is better than Jane Doe.</p>
-      <br />
+      <Carousel :autoplay="8000" :wrap-around="true">
+        <Slide v-for="slide in 5" :key="slide">
+          <Testimony />
+        </Slide>
+      </Carousel>
     </div>
 
     <!-- About Section -->
@@ -219,18 +155,29 @@
 </template>
 <script setup lang="ts">
 const { toggleSidebar } = useSidebar();
+
+const profileButtons = [
+  {
+    url: "https://www.linkedin.com/in/murrugarra/",
+    color: "#0a65c2",
+    icon: "fa-brands fa-linkedin-in",
+    name: "Linked in",
+  },
+  {
+    url: "https://github.com/murru-dev",
+    color: "black",
+    icon: "fa-brands fa-github",
+    name: "Git Hub",
+  },
+  {
+    url: "https://www.fiverr.com/murrugarra",
+    color: "#1dbf73",
+    icon: "fa-brands fa-dev",
+    name: "Fiverr",
+  },
+];
 </script>
 <style>
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Montserrat", sans-serif;
-}
-
 .carousel-wrapper {
   width: 40%;
 }
@@ -271,6 +218,10 @@ h6 {
 
 .profiles-wrapper > * {
   flex: 1;
+}
+
+#reputation .carousel {
+  text-align: unset;
 }
 
 .footer {
