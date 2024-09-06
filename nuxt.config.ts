@@ -21,5 +21,5 @@ export default defineNuxtConfig({
   },
 
   ssr: false,
-  modules: ["vue3-carousel-nuxt"],
+  modules: ["vue3-carousel-nuxt", "@nuxt/image"],
 });
