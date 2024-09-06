@@ -26,7 +26,7 @@
     <!-- Header -->
     <header class="w3-container w3-center header" id="home">
       <h1 class="responsive-title"><b>MurruDev</b></h1>
-      <p>Software Crafting Studio</p>
+      <p>Desarrollador Full Stack</p>
 
       <!-- Profiles Section -->
       <div
@@ -60,79 +60,84 @@
       </div>
     </header>
 
-    <!-- Testimonals Section -->
-    <div
-      class="w3-content w3-justify w3-text-grey w3-padding-32"
-      id="reputation"
-    >
-      <h2>My Reputation</h2>
-      <hr class="w3-opacity" />
-      <Carousel :autoplay="8000" :wrap-around="true">
-        <Slide v-for="slide in 5" :key="slide">
-          <Testimony />
-        </Slide>
-      </Carousel>
-    </div>
-
     <!-- About Section -->
     <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
-      <h2>About MurruDev</h2>
+      <h2>Sobre mí</h2>
       <hr class="w3-opacity" />
       <p>
-        Some text about me. Some text about me. I am lorem ipsum consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-        ut aliquip ex ea commodo consequat.
+        Ingeniero en Informática con más de una década de experiencia en
+        desarrollo full stack. Me apasiona transformar ideas en realidad,
+        creando soluciones digitales innovadoras y eficientes. Desde el diseño
+        hasta la implementación, disfruto de todo el proceso de desarrollo.
+        Cuando no estoy sumergido en código, me encontrarás en la pista de
+        baile, compartiendo mi amor por la danza y la creatividad con otros.
       </p>
       <!-- End About Section -->
     </div>
 
+    <!-- Reputation Section -->
+    <div
+      class="w3-content w3-justify w3-text-grey w3-padding-32"
+      id="reputation"
+    >
+      <h2>Reputación</h2>
+      <hr class="w3-opacity" />
+      <div class="w3-padding-32">
+        <Carousel :autoplay="8000" :wrap-around="true">
+          <Slide v-for="slide in 5" :key="slide">
+            <Testimony />
+          </Slide>
+          <template #addons>
+            <Pagination />
+          </template>
+        </Carousel>
+      </div>
+    </div>
+
     <!-- Stats Section -->
     <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="stats">
-      <h2>My Stats</h2>
+      <h2>Mis Números</h2>
       <hr class="w3-opacity" />
-      <div class="w3-row w3-center w3-dark-grey w3-padding-16 w3-section">
-        <div class="w3-third w3-section">
-          <span class="w3-xlarge">55</span><br />
-          Happy Clients
-        </div>
-        <div class="w3-third w3-section">
-          <span class="w3-xlarge">89</span><br />
-          Demos
-        </div>
-        <div class="w3-third w3-section">
-          <span class="w3-xlarge">14</span><br />
-          Tutorials
-        </div>
+      <div class="w3-dark-grey w3-padding-16 stats-wrapper">
+        <Stat
+          v-for="stat in stats"
+          :key="stat.name"
+          :name="stat.name"
+          :number="stat.number"
+        />
       </div>
     </div>
 
     <!-- Portfolio Section -->
     <div class="w3-padding-32 w3-content" id="portfolio">
-      <h2 class="w3-text-grey">My Portfolio</h2>
+      <h2 class="w3-text-grey">Portafolio</h2>
       <hr class="w3-opacity" />
-      <!-- End Portfolio Section -->
+
+      <div class="projects-wrapper">
+        <Project
+          v-for="project in projects"
+          :key="project.name.toLowerCase().replace(' ', '')"
+          :name="project.name"
+          :url="project.url"
+          :img="project.img"
+          :client="project.client"
+          :description="project.description"
+        />
+      </div>
     </div>
 
     <!-- Demos Section -->
     <div class="w3-padding-32 w3-content" id="demos">
-      <h2 class="w3-text-grey">My Demos</h2>
+      <h2 class="w3-text-grey">Demos</h2>
       <hr class="w3-opacity" />
       <!-- End Demos Section -->
     </div>
 
     <!-- Tutorials Section -->
-    <div class="w3-padding-32 w3-content" id="tutorials">
-      <h2 class="w3-text-grey">My Tutorials</h2>
+    <!-- <div class="w3-padding-32 w3-content" id="tutorials">
+      <h2 class="w3-text-grey">Tutorials</h2>
       <hr class="w3-opacity" />
-      <!-- End Tutorials Section -->
-    </div>
+    </div> -->
 
     <!-- Footer -->
     <footer
@@ -174,6 +179,23 @@ const profileButtons = [
     color: "#1dbf73",
     icon: "fa-brands fa-dev",
     name: "Fiverr",
+  },
+];
+
+const stats = [
+  { name: "Proyectos", number: 2 },
+  { name: "Demos", number: 2 },
+  { name: "Tutoriales", number: 2 },
+];
+
+const projects = [
+  {
+    name: "Vocabulary Tracker",
+    url: "https://students.dcvocabulary.com",
+    img: "/vocab-tracker-students.png",
+    client: "DC Vocabulary",
+    description:
+      "Just some random text, lorem ipsum text praesent tincidunt ipsum lipsumesent tincidunts ipsum lipsud",
   },
 ];
 </script>
@@ -224,6 +246,22 @@ const profileButtons = [
   text-align: unset;
 }
 
+#reputation .carousel__pagination {
+  margin-top: 5em;
+}
+
+.stats-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.projects-wrapper {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr;
+}
+
 .footer {
   margin: -24px;
 }
@@ -235,6 +273,10 @@ const profileButtons = [
 
   .responsive-btn-text {
     display: block;
+  }
+
+  .projects-wrapper {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>
