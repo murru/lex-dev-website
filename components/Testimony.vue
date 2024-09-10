@@ -1,37 +1,45 @@
 <template>
   <div class="w3-container testimony-wrapper">
     <div class="w3-center">
-      <img
-        src="~/assets/img/avatar_smoke.jpg"
+      <NuxtImg
+        :src="avatar"
         alt="Avatar"
+        format="avif"
         class="w3-circle author-img"
       />
     </div>
     <article>
       <span class="w3-hide-medium w3-hide-large">
-        <p class="my-0"><strong>John Doe</strong></p>
         <p class="my-0">
-          <a href="https://linkedin.com" target="_blank"
-            >President/CEO at Mighty Schools</a
-          >
+          <strong>{{ name }}</strong>
+        </p>
+        <p class="my-0">
+          <a :href="url" target="_blank"> {{ role }} at {{ company }} </a>
         </p>
       </span>
       <span class="w3-hide-small">
         <p class="my-0">
-          John Doe -
-          <a href="https://linkedin.com" target="_blank"
-            >President/CEO at Mighty Schools</a
-          >
+          {{ name }} -
+          <a :href="url" target="_blank"> {{ role }} at {{ company }} </a>
         </p>
       </span>
       <br />
       <p class="my-0">
-        Jane Doe is just awesome. I am so happy to have met her! Jane Doe is
-        just awesome awesome.
+        {{ text }}
       </p>
     </article>
   </div>
 </template>
+<script lang="ts" setup>
+defineProps<{
+  avatar: string;
+  url: string;
+  name: string;
+  company: string;
+  role: string;
+  text: string;
+}>();
+</script>
 <style>
 .no-shadow {
   box-shadow: none;
