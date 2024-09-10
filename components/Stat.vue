@@ -1,5 +1,5 @@
 <template>
-  <div class="w3-section w3-center">
+  <div class="w3-section w3-center" v-if="number > 0">
     <span class="w3-xlarge">{{ number }}</span
     ><br />
     {{ name }}
