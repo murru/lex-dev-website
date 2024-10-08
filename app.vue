@@ -10,63 +10,20 @@
   <!-- Page Content -->
   <div class="w3-main w3-padding-large" style="margin-left: 40%">
     <!-- Menu icon to open sidebar -->
-    <span
-      class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black nav-btn"
-      @click="toggleSidebar"
-    >
-      <i class="fa-solid fa-bars"></i>
-    </span>
+    <SidebarToggler />
 
     <!-- Header -->
-    <header class="w3-container w3-center header" id="home">
-      <h1 class="responsive-title"><b>MurruDev</b></h1>
-      <p>Desarrollador Full Stack</p>
-
-      <!-- Profiles Section -->
-      <div
-        class="w3-content w3-justify w3-text-grey w3-padding-32 profiles-wrapper"
-      >
-        <!-- Go to linked in profile -->
-        <ProfileButton
-          v-for="pb in profileButtons"
-          :key="pb.name.toLowerCase().replace(' ', '')"
-          :url="pb.url"
-          :color="pb.color"
-          :icon="pb.icon"
-          :name="pb.name"
-        />
-      </div>
-
-      <!-- Alex's images -->
-      <!-- TABLET -->
-      <div
-        class="w3-hide-large w3-hide-small"
-        style="width: 90%; height: 900px; margin: 0 auto"
-      >
-        <ImgCarousel />
-      </div>
-      <!-- MOBILE -->
-      <div
-        class="w3-hide-large w3-hide-medium"
-        style="width: 100%; height: 500px"
-      >
-        <ImgCarousel />
-      </div>
-    </header>
+    <HomeHeader
+      :title="homeData?.title"
+      :subtitle="homeData?.subtitle"
+      :web-profiles="homeData?.webProfiles"
+    />
 
     <!-- About Section -->
-    <Section title="Sobre mí" id="about">
-      <template #content>
-        <p>
-          Ingeniero en Informática con más de una década de experiencia en
-          desarrollo full stack. Me apasiona transformar ideas en realidad,
-          creando soluciones digitales innovadoras y eficientes. Desde el diseño
-          hasta la implementación, disfruto de todo el proceso de desarrollo.
-          Cuando no estoy sumergido en código, me encontrarás en la pista de
-          baile, compartiendo mi amor por la danza y la creatividad con otros.
-        </p>
-      </template>
-    </Section>
+    <HomeAbout
+      :title="homeData?.about?.title"
+      :content="homeData?.about?.content"
+    />
 
     <!-- Reputation Section -->
     <Section title="Reputación" id="reputation">
@@ -172,28 +129,10 @@
   </div>
 </template>
 <script setup lang="ts">
-const { toggleSidebar } = useSidebar();
+import type { IHome } from "./types";
 
-const profileButtons = [
-  {
-    url: "https://www.linkedin.com/in/murrugarra/",
-    color: "#0a65c2",
-    icon: "fa-brands fa-linkedin-in",
-    name: "Linked in",
-  },
-  {
-    url: "https://github.com/murru-dev",
-    color: "black",
-    icon: "fa-brands fa-github",
-    name: "Git Hub",
-  },
-  {
-    url: "https://www.fiverr.com/murrugarra",
-    color: "#1dbf73",
-    icon: "fa-brands fa-dev",
-    name: "Fiverr",
-  },
-];
+const { getHomeData } = useHomePage();
+const homeData = ref<IHome | null>(null);
 
 const testimonies = [
   {
@@ -274,6 +213,8 @@ const stats = [
   { name: "Demos", number: demos.length },
   { name: "Tutoriales", number: tutorials.length },
 ];
+
+homeData.value = await getHomeData();
 </script>
 <style>
 .carousel-wrapper {

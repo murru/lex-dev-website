@@ -19,7 +19,16 @@ export default defineNuxtConfig({
       ],
     },
   },
-
+  runtimeConfig: {
+    public: {
+      endpoint: process.env.ENDPOINT,
+      project: process.env.PROJECT,
+      database: process.env.DATABASE,
+      navOptions: process.env.NAV_OPTIONS,
+      homepage: process.env.HOMEPAGE,
+    },
+  },
   ssr: false,
   modules: ["vue3-carousel-nuxt", "@nuxt/image"],
+  compatibilityDate: "2024-10-08",
 });
