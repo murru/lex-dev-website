@@ -13,7 +13,12 @@
     <SidebarToggler />
 
     <!-- Header -->
-    <HomeHeader
+    <!-- <HomeHeader
+      :title="homeData?.title"
+      :subtitle="homeData?.subtitle"
+      :web-profiles="homeData?.webProfiles"
+    /> -->
+    <Home
       :title="homeData?.title"
       :subtitle="homeData?.subtitle"
       :web-profiles="homeData?.webProfiles"
@@ -217,6 +222,11 @@ const stats = [
 homeData.value = await getHomeData();
 </script>
 <style>
+/* General styles */
+.screen-height {
+  height: 100vh;
+}
+/* General styles */
 .carousel-wrapper {
   width: 40%;
 }
@@ -228,22 +238,6 @@ homeData.value = await getHomeData();
 .nav-btn {
   right: 0;
   width: auto;
-}
-
-.header {
-  /* padding: 128px 16px; */
-  padding: 30px 16px;
-}
-
-.responsive-title {
-  font-size: 55px;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
 }
 
 .responsive-btn-text {
