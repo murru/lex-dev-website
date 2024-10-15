@@ -2,11 +2,10 @@
   <a
     :href="url"
     target="_blank"
-    class="w3-button w3-padding-large w3-margin-top w3-text-white btn"
+    class="w3-btn w3-round-large w3-text-white icon-btn"
     :style="`background-color: ${color}`"
   >
-    <i :class="icon"></i>
-    <span class="responsive-btn-text">{{ name }}</span>
+    <i :class="[icon, 'icon']"></i>
   </a>
 </template>
 <script lang="ts" setup>
@@ -17,7 +16,14 @@ defineProps<{
   name: string;
 }>();
 </script>
-
+<style>
+.icon-btn {
+  padding: 20px 25px;
+}
+.icon {
+  font-size: 5rem;
+}
+</style>
 <!-- Go to git hub profile
 <a
 href="https://github.com/murru-dev"
