@@ -23,6 +23,24 @@ defineProps<{
 .icon {
   font-size: 5rem;
 }
+
+@media (max-width: 7680px) {
+  .icon-btn {
+    padding: 10px 15px;
+  }
+  .icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .icon-btn {
+    padding: 5px;
+  }
+  .icon {
+    font-size: 1.5rem;
+  }
+}
 </style>
 <!-- Go to git hub profile
 <a

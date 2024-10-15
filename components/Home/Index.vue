@@ -7,7 +7,7 @@
       <h2>{{ sub }}</h2>
     </header>
 
-    <div class="w3-padding-32 home-wrapper">
+    <div class="home-wrapper">
       <div class="profile-buttons-wrapper">
         <HomeProfileButton
           v-for="pb in webProfiles"
@@ -18,7 +18,8 @@
           :name="pb.name"
         />
       </div>
-      <div class="w3-hide-large">
+
+      <div class="mobile-carousel">
         <ImgCarousel />
       </div>
     </div>
@@ -44,14 +45,62 @@ const sub = computed(() => (lang.value === "es" ? subtitle?.es : subtitle?.en));
 }
 
 .home-wrapper {
-  /* display: grid;
-  justify-content: center;
-  grid-template-columns: auto 1fr; */
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .profile-buttons-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1em;
+}
+
+.mobile-carousel {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .home-wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2em;
+  }
+
+  .profile-buttons-wrapper {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  .mobile-carousel {
+    display: block;
+    height: 800px;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-wrapper {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .profile-buttons-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+
+  .mobile-carousel {
+    height: 400px;
+  }
+
+  /* .mobile-carousel {
+    display: block;
+    height: 800px;
+    margin-top: 1em;
+  } */
 }
 </style>
