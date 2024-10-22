@@ -45,7 +45,7 @@ defineProps<{
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 460px) {
   .profile-button {
     height: 30px;
     padding: 2px 6px;

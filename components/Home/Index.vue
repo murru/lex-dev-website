@@ -148,7 +148,7 @@ const inText = computed<string | undefined>(() =>
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 460px) {
   .responsive-title {
     font-size: 30px;
   }
