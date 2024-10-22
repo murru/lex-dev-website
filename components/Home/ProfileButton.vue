@@ -1,12 +1,18 @@
 <template>
-  <a
+  <div
+    class="w3-btn w3-round-large w3-text-white profile-button"
+    :style="`background-color: ${color}`"
+  >
+    <i :class="[icon, 'icon']"></i>
+  </div>
+  <!-- <a
     :href="url"
     target="_blank"
     class="w3-btn w3-round-large w3-text-white icon-btn"
     :style="`background-color: ${color}`"
   >
     <i :class="[icon, 'icon']"></i>
-  </a>
+  </a> -->
 </template>
 <script lang="ts" setup>
 defineProps<{
@@ -17,7 +23,13 @@ defineProps<{
 }>();
 </script>
 <style>
-.icon-btn {
+.profile-button {
+  height: 100px;
+  justify-self: center;
+  padding: 10px 25px;
+  width: 150px;
+}
+/* .icon-btn {
   padding: 20px 25px;
 }
 .icon {
@@ -40,7 +52,7 @@ defineProps<{
   .icon {
     font-size: 1.5rem;
   }
-}
+} */
 </style>
 <!-- Go to git hub profile
 <a
