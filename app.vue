@@ -166,10 +166,6 @@ homeData.value = await getHomeData();
   grid-template-columns: 1fr;
 }
 
-.footer {
-  margin: -24px;
-}
-
 .rrss-wrapper {
   display: flex;
   gap: 1em;

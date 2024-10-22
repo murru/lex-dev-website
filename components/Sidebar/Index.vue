@@ -66,7 +66,7 @@ navOptions.value = await getNav();
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 460px) {
   .nav {
     font-size: 1.5rem;
   }

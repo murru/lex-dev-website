@@ -50,3 +50,8 @@ const picsAuthor = computed<string>(() =>
   lang.value === "ES" ? "Fotografías tomadas por" : "Photographer"
 );
 </script>
+<style>
+.footer {
+  margin: 0px -24px -24px -24px;
+}
+</style>
