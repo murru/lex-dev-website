@@ -168,16 +168,6 @@ const inText = computed<string | undefined>(() =>
 
 @media (max-width: 393px) {
   .mobile-carousel {
-    height: 480px;
-  }
-
-  .intro {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .mobile-carousel {
     height: 350px;
   }
 
