@@ -13,122 +13,15 @@
     <SidebarToggler />
 
     <!-- Header -->
-    <!-- <HomeHeader
-      :title="homeData?.title"
-      :subtitle="homeData?.subtitle"
-      :web-profiles="homeData?.webProfiles"
-    /> -->
     <Home
       :title="homeData?.title"
       :subtitle="homeData?.subtitle"
       :web-profiles="homeData?.webProfiles"
+      :intro="homeData?.intro"
     />
-
-    <!-- About Section -->
-    <HomeAbout
-      :title="homeData?.about?.title"
-      :content="homeData?.about?.content"
-    />
-
-    <!-- Reputation Section -->
-    <Section title="Reputación" id="reputation">
-      <template #content>
-        <div class="w3-padding-32">
-          <Carousel :autoplay="8000" :wrap-around="true">
-            <Slide v-for="slide in testimonies.length" :key="slide">
-              <Testimony
-                :avatar="testimonies[slide - 1].avatar"
-                :url="testimonies[slide - 1].url"
-                :name="testimonies[slide - 1].name"
-                :company="testimonies[slide - 1].company"
-                :role="testimonies[slide - 1].role"
-                :text="testimonies[slide - 1].text"
-              />
-            </Slide>
-            <template #addons>
-              <Pagination />
-            </template>
-          </Carousel>
-        </div>
-      </template>
-    </Section>
-
-    <!-- Stats Section -->
-    <Section title="Mis Números" id="stats">
-      <template #content>
-        <div class="w3-dark-grey w3-padding-16 stats-wrapper">
-          <Stat
-            v-for="stat in stats"
-            :key="stat.name"
-            :name="stat.name"
-            :number="stat.number"
-          />
-        </div>
-      </template>
-    </Section>
-
-    <!-- Portfolio Section -->
-    <Section title="Portafolio" id="portfolio">
-      <template #content>
-        <div class="projects-wrapper">
-          <Project
-            v-for="project in projects"
-            :key="project.name.toLowerCase().replace(' ', '')"
-            :name="project.name"
-            :url="project.url"
-            :img="project.img"
-            :client="project.client"
-            :description="project.description"
-          />
-        </div>
-      </template>
-    </Section>
-
-    <!-- Demos Section -->
-    <Section title="Demos" id="demos">
-      <template #content>
-        <Demo
-          v-for="demo in demos"
-          :key="demo.name.toLowerCase().replace(' ', '')"
-          :name="demo.name"
-          :description="demo.description"
-          :url="demo.url"
-        />
-      </template>
-    </Section>
-
-    <!-- Tutorials Section -->
-    <Section title="Tutoriales" id="tutorials" v-if="tutorials.length > 0">
-      <template #content> TUTORIALES! </template>
-    </Section>
 
     <!-- Footer -->
-    <footer
-      class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge footer"
-    >
-      <p class="w3-medium">
-        Desarrollado con
-        <a
-          href="https://www.w3schools.com/w3css/default.asp"
-          target="_blank"
-          class="w3-hover-text-green"
-        >
-          w3.css
-        </a>
-      </p>
-      <p class="w3-medium">
-        Fotografías tomadas por
-        <a href="https://www.instagram.com/luchogbenitez/" target="_blank">
-          Lucho Benitez
-        </a>
-      </p>
-      <p class="w3-medium">Sígueme en mis redes sociales:</p>
-      <div class="rrss-wrapper">
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-twitter"></i>
-      </div>
-      <!-- End footer -->
-    </footer>
+    <Footer />
 
     <!-- END PAGE CONTENT -->
   </div>

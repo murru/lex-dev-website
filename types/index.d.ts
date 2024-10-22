@@ -12,6 +12,7 @@ export interface IHome {
   title?: string;
   subtitle?: ILanguageItem;
   webProfiles?: IWebProfile[];
+  intro?: ILanguageItem;
   about?: IAbout;
 }
 

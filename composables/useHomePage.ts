@@ -24,6 +24,7 @@ export const useHomePage = () => {
         title: d.title,
         subtitle: JSON.parse(d.subtitle),
         webProfiles: parseWebProfiles(d["web-profiles"]),
+        intro: JSON.parse(d.intro),
         about: JSON.parse(d.about),
       };
     });
