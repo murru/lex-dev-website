@@ -2,7 +2,7 @@
   <Transition>
     <nav
       v-if="sidebarState"
-      class="w3-sidebar w3-black w3-xxlarge nav"
+      class="w3-sidebar w3-black nav"
       @click="toggleSidebar"
     >
       <a class="w3-button w3-black w3-xxxlarge w3-display-topright close-btn">
@@ -39,9 +39,10 @@ navOptions.value = await getNav();
 <style scoped>
 .nav {
   display: block;
-  width: 60%;
+  font-size: 3rem;
   padding-top: 150px;
   right: 0;
+  width: 60%;
   z-index: 2;
 }
 
@@ -57,5 +58,17 @@ navOptions.value = await getNav();
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 820px) {
+  .nav {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav {
+    font-size: 1.5rem;
+  }
 }
 </style>

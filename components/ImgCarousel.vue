@@ -41,4 +41,10 @@
 .bgimg-5 {
   background-image: url("~/assets/img/slide-5.jpg");
 }
+
+@media (max-width: 992px) {
+  .carousel__viewport {
+    border-radius: 1.5em;
+  }
+}
 </style>
