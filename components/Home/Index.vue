@@ -166,7 +166,7 @@ const inText = computed<string | undefined>(() =>
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 393px) {
   .mobile-carousel {
     height: 480px;
   }
