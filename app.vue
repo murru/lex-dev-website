@@ -20,6 +20,12 @@
       :intro="homeData?.intro"
     />
 
+    <!-- About Me -->
+    <HomeAbout
+      :title="homeData?.about.title"
+      :content="homeData?.about.content"
+    />
+
     <!-- Footer -->
     <Footer />
 

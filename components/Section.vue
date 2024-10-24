@@ -1,9 +1,11 @@
 <template>
   <div
-    class="section-wrapper w3-content w3-justify w3-text-grey w3-padding-32"
+    class="screen-height section-wrapper w3-content w3-justify w3-text-grey w3-padding-32"
     id="about"
   >
-    <h2>{{ title }}</h2>
+    <header>
+      <h2>{{ title }}</h2>
+    </header>
     <hr class="w3-opacity" />
     <slot name="content" />
   </div>
