@@ -1,10 +1,11 @@
-const lang = ref<string>("ES");
+const language = ref<string>(localStorage.getItem("lang") || "es");
 
 export const useLanguage = () => {
-  const toggleLanguage = () => (lang.value = lang.value === "ES" ? "EN" : "ES");
+  const toggleLanguage = () =>
+    (language.value = language.value === "es" ? "en" : "es");
 
   return {
-    lang,
+    language,
     toggleLanguage,
   };
 };

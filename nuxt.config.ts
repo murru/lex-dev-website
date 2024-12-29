@@ -5,10 +5,15 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: "stylesheet", href: "https://www.w3schools.com/w3css/4/w3.css" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "anonymous",
+        },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Montserrat",
+          href: "https://fonts.googleapis.com/css2?family=Varela+Round&display=swap",
         },
       ],
       script: [
@@ -19,6 +24,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: ["@/assets/scss/global.scss"],
   runtimeConfig: {
     public: {
       endpoint: process.env.ENDPOINT,
@@ -29,6 +35,6 @@ export default defineNuxtConfig({
     },
   },
   ssr: false,
-  modules: ["vue3-carousel-nuxt", "@nuxt/image"],
+  modules: ["vue3-carousel-nuxt", "@nuxt/image", "@nuxt/ui"],
   compatibilityDate: "2024-10-08",
 });
