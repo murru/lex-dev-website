@@ -14,10 +14,6 @@ const toggleLang = () => {
   localStorage.setItem("lang", language.value === "es" ? "en" : "es");
   language.value = localStorage.getItem("lang")!;
 };
-
-if (!localStorage.getItem("theme")) {
-  localStorage.setItem("theme", "light");
-}
 </script>
 <template>
   <UTooltip :text="themeTooltip">

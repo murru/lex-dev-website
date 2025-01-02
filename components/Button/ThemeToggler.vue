@@ -2,21 +2,22 @@
 const colorMode = useColorMode();
 
 const themeIcon = computed(() =>
-  colorMode.value === "light"
+  colorMode.preference === "light"
     ? "i-line-md-moon-filled-alt-loop"
     : "i-line-md-moon-filled-alt-to-sunny-filled-loop-transition"
 );
 const themeTooltip = computed(() =>
-  colorMode.value === "light" ? "Change to dark theme" : "Change to light theme"
+  colorMode.preference === "light"
+    ? "Change to dark theme"
+    : "Change to light theme"
 );
 
 const toggleTheme = () => {
-  localStorage.setItem("theme", colorMode.value === "light" ? "dark" : "light");
-  colorMode.value = localStorage.getItem("theme")!;
+  colorMode.preference = colorMode.value === "light" ? "dark" : "light";
 };
 
-if (!localStorage.getItem("theme")) {
-  localStorage.setItem("theme", "light");
+if (!localStorage.getItem("nuxt-color-mode")) {
+  localStorage.setItem("nuxt-color-mode", "light");
 }
 </script>
 <template>
