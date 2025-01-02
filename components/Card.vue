@@ -1,5 +1,16 @@
+<script lang="ts" setup>
+interface ICardProps {
+  title?: string;
+  alignTitle?: string;
+}
+
+const { title, alignTitle = "left" } = defineProps<ICardProps>();
+</script>
 <template>
   <UCard class="card">
+    <p v-if="title" :class="`text-gray-400 capitalize mb-5 text-${alignTitle}`">
+      {{ title }}
+    </p>
     <slot />
   </UCard>
 </template>

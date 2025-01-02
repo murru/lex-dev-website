@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const isOpen = ref<boolean>(false);
+const { pages } = usePage();
+const { language } = useLanguage();
 </script>
 <template>
   <div class="mobile-toggler-wrapper">
@@ -37,7 +39,18 @@ const isOpen = ref<boolean>(false);
             </div>
           </div>
         </template>
-        <ULink to="/" class="text-2xl font-semibold"> Home </ULink>
+        <NuxtLink
+          v-for="page in pages"
+          :key="page.name.en.toLowerCase().replaceAll(' ', '-')"
+          :to="page.url"
+          class="link mx-2 text-2xl font-semibold block"
+          @click="isOpen = false"
+        >
+          <span class="uppercase text-sm">
+            {{ language === "en" ? page.name.en : page.name.es }}
+          </span>
+        </NuxtLink>
+        <!-- <ULink to="/" class="text-2xl font-semibold"> Home </ULink> -->
       </UCard>
     </UModal>
   </div>
