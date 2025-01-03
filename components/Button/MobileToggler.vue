@@ -24,9 +24,9 @@ const { language } = useLanguage();
         }"
       >
         <template #header>
-          <div class="flex items-center justify-between pt-4">
-            <div class="text-3xl font-semibold">Menu</div>
-            <div class="flex items-center">
+          <div class="header-wrapper">
+            <div class="title">Menu</div>
+            <div class="actions">
               <ButtonThemeToggler />
               <ButtonLangToggler />
               <UDivider icon="i-fluent-divider-tall-16-filled" size="xs" />
@@ -43,24 +43,38 @@ const { language } = useLanguage();
           v-for="page in pages"
           :key="page.name.en.toLowerCase().replaceAll(' ', '-')"
           :to="page.url"
-          class="link mx-2 text-2xl font-semibold block"
+          class="link"
           @click="isOpen = false"
         >
-          <span class="uppercase text-sm">
-            {{ language === "en" ? page.name.en : page.name.es }}
-          </span>
+          {{ language === "en" ? page.name.en : page.name.es }}
         </NuxtLink>
         <!-- <ULink to="/" class="text-2xl font-semibold"> Home </ULink> -->
       </UCard>
     </UModal>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .mobile-toggler-wrapper {
   @apply hidden;
 
   @media (max-width: 1024px) {
     @apply block;
   }
+}
+
+.header-wrapper {
+  @apply flex items-center justify-between pt-4;
+
+  .title {
+    @apply text-3xl font-semibold;
+  }
+
+  .actions {
+    @apply flex items-center;
+  }
+}
+
+.link {
+  @apply my-2 text-2xl font-semibold block;
 }
 </style>

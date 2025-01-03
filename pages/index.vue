@@ -24,8 +24,49 @@ const socialAccounts: ISocialAccount[] = [
     url: "https://github.com/murru-dev",
   },
 ];
+
+// Home logic
+const openCV = () => {
+  window.open(
+    "https://docs.google.com/document/d/1xIHZdrqBZmrJHR-V4vqHuRoI8cxmXSiSi04Rc-0zUZ4/edit?usp=sharing",
+    "_blank",
+    "noopener,noreferrer"
+  );
+};
+
+// Works & Tutorials logic
+const goToProjectsAndTutorials = () => {
+  navigateTo("/projects-and-tutorials");
+};
+const projects: IProjectItem[] = [
+  {
+    name: "Web Application One",
+    client: "One",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+    tags: ["project", "application", "web", "fullstack"],
+  },
+  {
+    name: "Web Site One",
+    client: "Two",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+    tags: ["tutorial", "web", "frontend"],
+  },
+  {
+    name: "API One",
+    client: "Thre",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+    tags: ["project", "backend"],
+  },
+  /* { name: "", client: "", description: "", tags: ["tutorial", "ios"] },
+  { name: "", client: "", description: "", tags: ["tutorial", "ios"] },
+  { name: "", client: "", description: "", tags: ["tutorial", "ios"] }, */
+];
 </script>
 <template>
+  <!-- Home -->
   <section class="home-wrapper">
     <Card class="id-card">
       <img :src="alexAvatar" alt="Alex M avatar" class="avatar" />
@@ -51,15 +92,11 @@ const socialAccounts: ISocialAccount[] = [
           I'm Alex M, a dedicated software creator with a deep appreciation for
           the art of coding.
         </h2>
-        <UButton
-          label="Download my CV"
-          :ui="{ rounded: 'rounded-2xl' }"
-          class="mt-8 py-3 px-6"
-        >
-          <template #trailing>
-            <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
-          </template>
-        </UButton>
+        <ButtonCallToAction
+          label="download my CV"
+          icon="i-ph-read-cv-logo-fill"
+          @click-call-to-action="openCV"
+        />
       </Card>
 
       <!-- Stats -->
@@ -125,6 +162,35 @@ const socialAccounts: ISocialAccount[] = [
       </div>
     </Card>
   </section>
+
+  <!-- Projects -->
+  <section class="projects-wrapper">
+    <Card class="card">
+      <h2 class="card-title">Recent Works & Tutorials</h2>
+      <div class="description">
+        <p>
+          Check out some of my design projects, meticulously crafted with love
+          and dedication, each one reflecting the passion and soul I poured into
+          every detail.
+        </p>
+      </div>
+      <div class="grid-container">
+        <ProjectCard
+          v-for="(project, n) in projects"
+          :key="`child-${n}`"
+          :class="`child-${n}`"
+          :project="project"
+        />
+      </div>
+      <div class="call-to-action">
+        <ButtonCallToAction
+          label="check them all"
+          icon="i-material-symbols-light-workspaces"
+          @click-call-to-action="goToProjectsAndTutorials"
+        />
+      </div>
+    </Card>
+  </section>
 </template>
 <style lang="scss">
 .home-wrapper {
@@ -157,7 +223,7 @@ const socialAccounts: ISocialAccount[] = [
   }
 
   .rigth-wrapper {
-    @apply flex flex-col gap-8;
+    @apply grid grid-rows-[auto,_1fr] gap-8;
 
     .stats {
       @apply grid grid-cols-3 gap-8;
@@ -240,6 +306,56 @@ const socialAccounts: ISocialAccount[] = [
           }
         }
       }
+    }
+  }
+}
+
+.projects-wrapper {
+  @apply mt-8;
+
+  .card {
+    @apply text-center;
+
+    .description {
+      @apply px-28 text-[16px] text-gray-400 mb-4;
+
+      @media (max-width: 1024px) {
+        @apply px-0;
+      }
+    }
+
+    .grid-container {
+      @apply grid;
+    }
+    /* .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      grid-column-gap: 36px;
+      grid-row-gap: 36px;
+
+      .child-1 {
+        grid-area: 1 / 1 / 3 / 2;
+      }
+      .child-2 {
+        grid-area: 1 / 2 / 5 / 3;
+      }
+      .child-3 {
+        grid-area: 3 / 1 / 5 / 2;
+      }
+      .child-4 {
+        grid-area: 5 / 1 / 9 / 2;
+      }
+      .child-5 {
+        grid-area: 5 / 2 / 7 / 3;
+      }
+      .child-6 {
+        grid-area: 7 / 2 / 9 / 3;
+      }
+    } */
+
+    .call-to-action {
+      @apply mx-auto;
     }
   }
 }
