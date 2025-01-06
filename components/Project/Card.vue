@@ -30,12 +30,10 @@ const tags = computed(() => project.tags);
       <ButtonCircle icon="i-material-symbols-arrow-outward-rounded" />
     </div>
 
-    <UDivider />
-
     <!-- Content -->
     <div style="display: grid; grid-template-rows: 1fr auto">
       <!-- Body -->
-      <p class="pt-4 text-left">{{ description }}</p>
+      <p class="py-4 text-left">{{ description }}</p>
 
       <!-- Footer -->
       <div class="mt-4 flex flex-wrap gap-2">
