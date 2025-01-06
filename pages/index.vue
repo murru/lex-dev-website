@@ -40,6 +40,7 @@ const goToProjectsAndTutorials = () => {
 };
 const projects: IProjectItem[] = [
   {
+    bg: "https://bentos-react.vercel.app/assets/work1-CBmW8qa2.jpg",
     name: "Web Application One",
     client: "One",
     description:
@@ -47,22 +48,61 @@ const projects: IProjectItem[] = [
     tags: ["project", "application", "web", "fullstack"],
   },
   {
+    bg: "https://bentos-react.vercel.app/assets/work2-DtmWxhl8.jpg",
     name: "Web Site One",
     client: "Two",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
     tags: ["tutorial", "web", "frontend"],
   },
   {
+    bg: "https://bentos-react.vercel.app/assets/work3-BeTDGQxd.jpg",
     name: "API One",
     client: "Thre",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
     tags: ["project", "backend"],
   },
-  /* { name: "", client: "", description: "", tags: ["tutorial", "ios"] },
-  { name: "", client: "", description: "", tags: ["tutorial", "ios"] },
-  { name: "", client: "", description: "", tags: ["tutorial", "ios"] }, */
+  {
+    bg: "https://bentos-react.vercel.app/assets/work4-MDM2TfKy.jpg",
+    name: "Web Application Four",
+    client: "Four",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
+    tags: ["project", "application", "web", "fullstack"],
+  },
+  {
+    bg: "https://cdn.prod.website-files.com/63fbd08ddcf513deab3f9b05/63fbd08ddcf513df6b3f9b07_Thumb%203%20Small.webp",
+    name: "Web Application One",
+    client: "One",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+    tags: ["project", "application", "web", "fullstack"],
+  },
+  {
+    bg: "https://cdn.prod.website-files.com/63fbd08ddcf513deab3f9b05/63fbd08ddcf513190e3f9b0b_Thumb%201%20Large.webp",
+    name: "Web Site One",
+    client: "Two",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
+    tags: ["tutorial", "web", "frontend"],
+  },
+  {
+    bg: "https://cdn.prod.website-files.com/63fbd08ddcf51344a63f9add/63fbd08ddcf513a0613f9af9_Image%201.webp",
+    name: "API One",
+    client: "Thre",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+    tags: ["project", "backend"],
+  },
+  {
+    bg: "https://cdn.prod.website-files.com/63fbd08ddcf51344a63f9add/63fbd08ddcf5135da03f9afa_Image%202.webp",
+    name: "Web Application Four",
+    client: "Four",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
+    tags: ["project", "application", "web", "fullstack"],
+  },
 ];
 </script>
 <template>
@@ -146,16 +186,10 @@ const projects: IProjectItem[] = [
               </div>
             </div>
             <div class="controls">
-              <UButton
-                :ui="{ rounded: 'rounded-full' }"
-                icon="i-material-symbols-arrow-back-ios-rounded"
-                class="button"
-              ></UButton>
-              <UButton
-                :ui="{ rounded: 'rounded-full' }"
+              <ButtonCircle icon="i-material-symbols-arrow-back-ios-rounded" />
+              <ButtonCircle
                 icon="i-material-symbols-arrow-forward-ios-rounded"
-                class="button"
-              ></UButton>
+              />
             </div>
           </div>
         </div>
@@ -178,7 +212,7 @@ const projects: IProjectItem[] = [
         <ProjectCard
           v-for="(project, n) in projects"
           :key="`child-${n}`"
-          :class="`child-${n}`"
+          :class="`child-${n + 1}`"
           :project="project"
         />
       </div>
@@ -291,20 +325,6 @@ const projects: IProjectItem[] = [
             }
           }
         }
-
-        .controls {
-          .button {
-            @apply w-16 h-16 mx-2 justify-center;
-
-            @media (max-width: 1024px) {
-              @apply w-12 h-12;
-            }
-
-            @media (max-width: 530px) {
-              @apply w-10 h-10;
-            }
-          }
-        }
       }
     }
   }
@@ -325,34 +345,42 @@ const projects: IProjectItem[] = [
     }
 
     .grid-container {
-      @apply grid;
-    }
-    /* .grid-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(8, 1fr);
-      grid-column-gap: 36px;
-      grid-row-gap: 36px;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 2rem;
 
-      .child-1 {
-        grid-area: 1 / 1 / 3 / 2;
+      .child-1,
+      .child-4,
+      .child-5,
+      .child-8 {
+        @apply row-span-2 col-span-6;
       }
-      .child-2 {
-        grid-area: 1 / 2 / 5 / 3;
+
+      .child-2,
+      .child-3,
+      .child-6,
+      .child-7 {
+        @apply row-span-4 col-span-6;
       }
-      .child-3 {
-        grid-area: 3 / 1 / 5 / 2;
+
+      @media (max-width: 1024px) {
+        .child-1,
+        .child-2,
+        .child-3,
+        .child-4,
+        .child-5,
+        .child-6,
+        .child-7,
+        .child-8 {
+          @apply row-span-4 col-span-12;
+        }
       }
-      .child-4 {
-        grid-area: 5 / 1 / 9 / 2;
+
+      @media (max-width: 530px) {
+        gap: unset;
+        row-gap: 2rem;
       }
-      .child-5 {
-        grid-area: 5 / 2 / 7 / 3;
-      }
-      .child-6 {
-        grid-area: 7 / 2 / 9 / 3;
-      }
-    } */
+    }
 
     .call-to-action {
       @apply mx-auto;

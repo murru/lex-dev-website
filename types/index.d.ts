@@ -4,6 +4,7 @@ interface ILanguageItem {
 }
 
 interface IProjectItem {
+  bg: string;
   name: string;
   client: string;
   description: string;
