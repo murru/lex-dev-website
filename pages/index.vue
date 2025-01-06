@@ -44,7 +44,7 @@ const projects: IProjectItem[] = [
     name: "Web Application One",
     client: "One",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
     tags: ["project", "application", "web", "fullstack"],
   },
   {
@@ -52,7 +52,7 @@ const projects: IProjectItem[] = [
     name: "Web Site One",
     client: "Two",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit.",
     tags: ["tutorial", "web", "frontend"],
   },
   {
@@ -60,7 +60,7 @@ const projects: IProjectItem[] = [
     name: "API One",
     client: "Thre",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu.",
     tags: ["project", "backend"],
   },
   {
@@ -73,18 +73,18 @@ const projects: IProjectItem[] = [
   },
   {
     bg: "https://cdn.prod.website-files.com/63fbd08ddcf513deab3f9b05/63fbd08ddcf513df6b3f9b07_Thumb%203%20Small.webp",
-    name: "Web Application One",
-    client: "One",
+    name: "Web Application Five",
+    client: "Five",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
     tags: ["project", "application", "web", "fullstack"],
   },
   {
     bg: "https://cdn.prod.website-files.com/63fbd08ddcf513deab3f9b05/63fbd08ddcf513190e3f9b0b_Thumb%201%20Large.webp",
-    name: "Web Site One",
-    client: "Two",
+    name: "Web Site Six",
+    client: "Six",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis.",
     tags: ["tutorial", "web", "frontend"],
   },
   {
@@ -92,13 +92,13 @@ const projects: IProjectItem[] = [
     name: "API One",
     client: "Thre",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi suscipit vestibulum quis eu sapien. Maecenas lacinia ut orci ut.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas. Suspendisse vitae ipsum in mi Maecenas lacinia ut orci ut.",
     tags: ["project", "backend"],
   },
   {
     bg: "https://cdn.prod.website-files.com/63fbd08ddcf51344a63f9add/63fbd08ddcf5135da03f9afa_Image%202.webp",
-    name: "Web Application Four",
-    client: "Four",
+    name: "Web Application Seven",
+    client: "Seven",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sodales est sit amet tincidunt egestas.",
     tags: ["project", "application", "web", "fullstack"],
