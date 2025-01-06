@@ -6,17 +6,24 @@ interface IPage {
 const pages: IPage[] = [
   {
     name: {
-      es: "principal",
-      en: "home",
+      es: "Principal",
+      en: "Home",
     },
     url: "/",
   },
   {
     name: {
-      es: "sobre mí",
-      en: "about",
+      es: "Sobre Mí",
+      en: "About",
     },
     url: "/about",
+  },
+  {
+    name: {
+      es: "Proyectos & Tutoriales",
+      en: "Projects & Tutorials",
+    },
+    url: "/projects-and-tutorials",
   },
 ];
 export const usePage = () => {

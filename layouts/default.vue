@@ -8,20 +8,16 @@ const { language } = useLanguage();
     <UContainer>
       <div class="wrapper">
         <div class="logo">MurruDev</div>
-        <div class="nav">
-          <nav>
-            <NuxtLink
-              v-for="page in pages"
-              :key="page.name.en.toLowerCase().replaceAll(' ', '-')"
-              :to="page.url"
-              class="link mx-2"
-            >
-              <span class="uppercase text-sm">
-                {{ language === "en" ? page.name.en : page.name.es }}
-              </span>
-            </NuxtLink>
-          </nav>
-        </div>
+        <nav class="nav">
+          <NuxtLink
+            v-for="page in pages"
+            :key="page.name.en.toLowerCase().replaceAll(' ', '-')"
+            :to="page.url"
+            class="link"
+          >
+            {{ language === "en" ? page.name.en : page.name.es }}
+          </NuxtLink>
+        </nav>
         <div class="actions">
           <UButton
             icon="i-ic-outline-handshake"
@@ -59,7 +55,18 @@ const { language } = useLanguage();
     <UContainer class="footer">
       <p>Copyright @2024, MurruDev All Rights Reserved.</p>
       <div class="flex items-center gap-2">
-        <p>In production thanks to</p>
+        <p>Developed with</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="red"
+            d="m12 21l-1.45-1.3q-2.525-2.275-4.175-3.925T3.75 12.812T2.388 10.4T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.3 0 2.475.55T12 4.75q.85-1 2.025-1.55t2.475-.55q2.35 0 3.925 1.575T22 8.15q0 1.15-.387 2.25t-1.363 2.412t-2.625 2.963T13.45 19.7z"
+          />
+        </svg>
         <UIcon name="i-logos-digital-ocean-icon" />
         <UIcon name="i-logos-nuxt-icon" />
         <UIcon name="i-vscode-icons-file-type-typescript" class="text-3xl" />
@@ -73,10 +80,6 @@ const { language } = useLanguage();
   @apply opacity-0 transition duration-500 ease-in-out;
 }
 
-.link {
-  @apply text-lg cursor-pointer;
-}
-
 .active-page {
   @apply text-primary;
 }
@@ -87,6 +90,8 @@ const { language } = useLanguage();
 
 .card-title {
   @apply text-[40px] mb-5;
+
+  line-height: 50px;
 
   @media (max-width: 530px) {
     @apply text-3xl;
@@ -105,6 +110,12 @@ const { language } = useLanguage();
     @apply py-8 flex items-center justify-between;
 
     .nav {
+      @apply flex items-center gap-4;
+
+      .link {
+        @apply text-lg cursor-pointer;
+      }
+
       @media (max-width: 1024px) {
         @apply hidden;
       }
